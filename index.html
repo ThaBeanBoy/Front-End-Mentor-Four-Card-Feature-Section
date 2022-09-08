@@ -28,6 +28,7 @@
         --Colour-Grayish-Blue: hsl(229, 6%, 66%);
         --Colour-Very-Light-Gray: hsl(0, 0%, 98%);
 
+        --Card-Max-Width: 350px;
         --Card-Padding: 32px;
       }
 
@@ -40,6 +41,7 @@
       body {
         width: 100vw;
         min-height: 100vh;
+        padding: 16px;
         background-color: var(--Colour-Very-Light-Gray);
 
         display: flex;
@@ -51,12 +53,19 @@
         color: var(--Colour-Very-Dark-Blue);
       }
 
+      p {
+        /* font-weight: 200; */
+        color: var(--Colour-Grayish-Blue);
+      }
+
       h1 {
         font-size: 32px;
         line-height: 40px;
         font-weight: 200;
         margin-top: 64px;
         margin-bottom: 24px;
+
+        text-align: center;
       }
 
       h1 b {
@@ -68,6 +77,8 @@
         max-width: 512px;
         text-align: center;
         margin-bottom: 64px;
+
+        text-align: center;
       }
 
       .cards {
@@ -78,13 +89,17 @@
 
       .card {
         position: relative;
-        max-width: 350px;
+        max-width: var(--Card-Max-Width);
         height: 246px;
         margin: 15px;
         padding: 32px;
         border-top: 4px solid /*  var(--Colour-Cyan) */;
         border-radius: 4px;
         box-shadow: 0px 12px 24px var(--Colour-Grayish-Blue);
+      }
+
+      .tablet-view {
+        display: none;
       }
 
       .card h4 {
@@ -97,6 +112,36 @@
         position: absolute;
         bottom: var(--Card-Padding);
         right: var(--Card-Padding);
+      }
+
+      /* Tablet like screens */
+      @media screen and (max-width: 1140px) {
+        .vertical-stack:not(.vertical-stack:first-child, .vertical-stack:last-child) {
+          display: none;
+        }
+
+        .tablet-view {
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 630px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        h1,
+        .sub-heading {
+          max-width: var(--Card-Max-Width);
+        }
+
+        .cards {
+          flex-direction: column;
+        }
+
+        .card {
+          margin: 15px 0;
+        }
       }
 
       .attribution {
@@ -120,10 +165,23 @@
     </p>
 
     <div class="cards">
-      <div class="card" style="border-top-color: var(--Colour-Cyan)">
-        <h4>Supervisor</h4>
-        <p>Monitors activity to identify project roadblocks</p>
-        <img src="./images/icon-supervisor.svg" alt="supervisor icon" />
+      <div class="vertical-stack">
+        <div class="card" style="border-top-color: var(--Colour-Cyan)">
+          <h4>Supervisor</h4>
+          <p>Monitors activity to identify project roadblocks</p>
+          <img src="./images/icon-supervisor.svg" alt="supervisor icon" />
+        </div>
+
+        <div
+          class="card tablet-view"
+          style="border-top-color: var(--Colour-Red)"
+        >
+          <h4>Team Builder</h4>
+          <p>
+            Scans our talent network to create the optimal team for your project
+          </p>
+          <img src="./images/icon-team-builder.svg" alt="supervisor icon" />
+        </div>
       </div>
 
       <div class="vertical-stack">
@@ -142,10 +200,23 @@
         </div>
       </div>
 
-      <div class="card" style="border-top-color: var(--Colour-Blue)">
-        <h4>Calculator</h4>
-        <p>Uses data from past projects to provide better delivery estimates</p>
-        <img src="./images/icon-calculator.svg" alt="supervisor icon" />
+      <div class="vertical-stack">
+        <div
+          class="card tablet-view"
+          style="border-top-color: var(--Colour-Orange)"
+        >
+          <h4>Karma</h4>
+          <p>Regularly evaluates our talent to ensure quality</p>
+          <img src="./images/icon-karma.svg" alt="supervisor icon" />
+        </div>
+
+        <div class="card" style="border-top-color: var(--Colour-Blue)">
+          <h4>Calculator</h4>
+          <p>
+            Uses data from past projects to provide better delivery estimates
+          </p>
+          <img src="./images/icon-calculator.svg" alt="supervisor icon" />
+        </div>
       </div>
     </div>
 
