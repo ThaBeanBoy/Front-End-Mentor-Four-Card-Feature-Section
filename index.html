@@ -1,45 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Four card feature section</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  
-  Reliable, efficient delivery
-  Powered by Technology
+    <title>Frontend Mentor | Four card feature section</title>
 
-  Our Artificial Intelligence powered tools use millions of project data points 
-  to ensure that your project is successful
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 
-  Supervisor
-  Monitors activity to identify project roadblocks
+      :root {
+        /* Primary */
+        --Colour-Red: hsl(0, 78%, 62%);
+        --Colour-Cyan: hsl(180, 62%, 55%);
+        --Colour-Orange: hsl(34, 97%, 64%);
+        --Colour-Blue: hsl(212, 86%, 64%);
+        /* Neutral */
+        --Colour-Very-Dark-Blue: hsl(234, 12%, 34%);
+        --Colour-Grayish-Blue: hsl(229, 6%, 66%);
+        --Colour-Very-Light-Gray: hsl(0, 0%, 98%);
 
-  Team Builder
-  Scans our talent network to create the optimal team for your project
+        --Card-Padding: 32px;
+      }
 
-  Karma
-  Regularly evaluates our talent to ensure quality
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-  Calculator
-  Uses data from past projects to provide better delivery estimates
+      body {
+        width: 100vw;
+        min-height: 100vh;
+        background-color: var(--Colour-Very-Light-Gray);
 
-  
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        font-size: 15px;
+        font-family: 'Poppins', sans-serif;
+        color: var(--Colour-Very-Dark-Blue);
+      }
+
+      h1 {
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 200;
+        margin-top: 64px;
+        margin-bottom: 24px;
+      }
+
+      h1 b {
+        font-weight: 600;
+      }
+
+      .sub-heading {
+        line-height: 24px;
+        max-width: 512px;
+        text-align: center;
+        margin-bottom: 64px;
+      }
+
+      .cards {
+        display: flex;
+        align-items: center;
+        margin-bottom: 64px;
+      }
+
+      .card {
+        position: relative;
+        max-width: 350px;
+        height: 246px;
+        margin: 15px;
+        padding: 32px;
+        border-top: 4px solid /*  var(--Colour-Cyan) */;
+        border-radius: 4px;
+        box-shadow: 0px 12px 24px var(--Colour-Grayish-Blue);
+      }
+
+      .card h4 {
+        margin-bottom: 16px;
+        font-size: 21px;
+        font-weight: 600;
+      }
+
+      .card img {
+        position: absolute;
+        bottom: var(--Card-Padding);
+        right: var(--Card-Padding);
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .attribution a {
+        color: var(--Colour-Blue);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Reliable, efficient delivery <br />
+      <b>Powered by Technology</b>
+    </h1>
+    <p class="sub-heading">
+      Our Artificial Intelligence powered tools use millions of project data
+      points to ensure that your project is successful
     </p>
-  </footer>
-</body>
+
+    <div class="cards">
+      <div class="card" style="border-top-color: var(--Colour-Cyan)">
+        <h4>Supervisor</h4>
+        <p>Monitors activity to identify project roadblocks</p>
+        <img src="./images/icon-supervisor.svg" alt="supervisor icon" />
+      </div>
+
+      <div class="vertical-stack">
+        <div class="card" style="border-top-color: var(--Colour-Red)">
+          <h4>Team Builder</h4>
+          <p>
+            Scans our talent network to create the optimal team for your project
+          </p>
+          <img src="./images/icon-team-builder.svg" alt="supervisor icon" />
+        </div>
+
+        <div class="card" style="border-top-color: var(--Colour-Orange)">
+          <h4>Karma</h4>
+          <p>Regularly evaluates our talent to ensure quality</p>
+          <img src="./images/icon-karma.svg" alt="supervisor icon" />
+        </div>
+      </div>
+
+      <div class="card" style="border-top-color: var(--Colour-Blue)">
+        <h4>Calculator</h4>
+        <p>Uses data from past projects to provide better delivery estimates</p>
+        <img src="./images/icon-calculator.svg" alt="supervisor icon" />
+      </div>
+    </div>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer>
+  </body>
 </html>
